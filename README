@@ -1,0 +1,26 @@
+How to build and run
+
+1. create a virtual env
+   python3 -m venv .venv
+   . .venv/bin/activate
+2. install the dependencies libs
+   pip install -r rrequirments.txt
+
+3. start the microservce in flask
+   flask --app services/products run
+
+4. access the endpoints
+   curl --location 'http://127.0.0.1:5010/auth' \
+   --header 'Content-Type: application/json' \
+   --data '{
+   "id":1,
+   "username":"admin",
+   "password":"admin"
+   }'
+
+curl --location 'http://127.0.0.1:5010/products'
+
+5. docker build image
+   docker build -t flask-microservice .
+6. run docker container:
+   docker run -p 5010:5010 flask-microservice
